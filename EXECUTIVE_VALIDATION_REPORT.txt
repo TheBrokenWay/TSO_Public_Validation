@@ -1,0 +1,19 @@
+TSO VALIDATION REPORT
+---------------------
+Generated: 2026-01-29T15:47:13.569750Z
+
+Scaling Correlation (ΔE vs ΔSinfo):
+   r² = 0.9941  → FAIL
+
+Sigmoid Decoherence:
+   (fit failed or insufficient data)
+
+Critical Divergences:
+   ν = 0.7600228730781423, z = 0.7600228730781423 (power_law_r² = 0.2667) → FAIL
+
+Universality:
+   k dispersion = 1.10× → PASS
+
+FINAL STATUS:
+   TSO THEORY: FAILED
+   Failures: ['SIGMOID_FAIL', 'CRITICAL_DIVERGENCE_FAIL']

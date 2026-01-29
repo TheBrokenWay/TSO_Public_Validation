@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSO Enterprise Validation Dashboard</title>
+  <style>
+    :root { --bg: #0d1117; --card: #161b22; --text: #e6edf3; --muted: #8b949e; --pass: #3fb950; --fail: #f85149; --accent: #58a6ff; }
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 1.5rem; line-height: 1.5; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .card { background: var(--card); border: 1px solid #30363d; border-radius: 8px; padding: 1rem; }
+    .card h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--muted); }
+    .value { font-size: 1.25rem; font-weight: 600; }
+    .value.pass { color: var(--pass); }
+    .value.fail { color: var(--fail); }
+    .falsification { background: var(--card); border: 2px solid var(--status, var(--fail)); border-radius: 8px; padding: 1.25rem; margin-top: 1rem; }
+    .falsification h2 { margin: 0 0 0.5rem; }
+    .falsification .status { font-size: 1.5rem; font-weight: 700; }
+    .falsification .status.pass { color: var(--pass); }
+    .falsification .status.fail { color: var(--fail); }
+    ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  </style>
+</head>
+<body>
+  <h1>TSO Enterprise Validation Dashboard</h1>
+  <p class="meta">Generated 2026-01-29T15:47:13.570031Z · Standalone TSO_Validator</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Scaling (ΔE vs ΔSinfo)</h2>
+      <p class="value pass">r² = 0.9941063647592066</p>
+      <p class="meta">r² = 0.9941 → PASS</p>
+    </div>
+    <div class="card">
+      <h2>Sigmoid decoherence</h2>
+      <p class="value fail">n = —</p>
+      <p class="meta">Fit failed or insufficient data.</p>
+    </div>
+    <div class="card">
+      <h2>Critical divergence</h2>
+      <p class="value fail">ν=0.7600228730781423, z=0.7600228730781423 (R²=0.26666667279678846)</p>
+      <p class="meta">power_law_r2 = 0.2667 < 0.95</p>
+    </div>
+    <div class="card">
+      <h2>Universality</h2>
+      <p class="value pass">k dispersion = 1.1009174311926606×</p>
+      <p class="meta">k dispersion = 1.10× → PASS</p>
+    </div>
+  </div>
+
+  <div class="falsification" style="--status: var(--fail);">
+    <h2>Falsification tracker</h2>
+    <p class="status fail">TSO THEORY: FAILED</p>
+    <ul><li>SIGMOID_FAIL</li><li>CRITICAL_DIVERGENCE_FAIL</li></ul>
+  </div>
+</body>
+</html>
